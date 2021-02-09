@@ -16,7 +16,8 @@ parameters:
 steps:
 - checkout: self
   clean: true
-  fetchDepth: 1
+  fetchDepth: 20
+  submodules: recursive
 
 - task: UsePythonVersion@0
   inputs:
@@ -25,6 +26,13 @@ steps:
 
 - script: pip install -r pip-requirements.txt --upgrade
   displayName: 'Install/Upgrade pip modules'
+
+- bash: |
+    ls edk2
+    ls -l
+    printenv
+    ls edk2/ArmPkg/Library/ArmSoftFloatLib/berkeley-softfloat-3
+    ls edk2/BaseTools/Source/C/BrotliCompress/brotli
 
 # Set default
 - bash: |
