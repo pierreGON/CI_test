@@ -12,6 +12,13 @@ pr:
 - master
 - stable/*
 
+resources:
+  repositories:
+  - repository: edk2
+    type: github
+    endpoint: https://github.com/tianocore/edk2.git
+    name: edk2
+
 jobs:
 - template: templates/pr-gate-build-job.yml
   parameters:

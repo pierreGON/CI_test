@@ -18,6 +18,10 @@ steps:
   clean: true
   fetchDepth: 1
 
+- checkout: edk2
+  clean: true
+  fetchDepth: 1
+
 - task: UsePythonVersion@0
   inputs:
     versionSpec: '3.8.x'
@@ -25,6 +29,12 @@ steps:
 
 - script: pip install -r pip-requirements.txt --upgrade
   displayName: 'Install/Upgrade pip modules'
+
+- bash: |
+    ls edk2
+    ls -l
+    printenv
+    ls edk2-platforms
 
 # Set default
 - bash: |
